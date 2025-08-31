@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Compass</title>
 
     <style>
 
@@ -15,42 +15,31 @@
 
             background-color: blueviolet;
             width: 100%;
-            height: 100vh;
-
-            /* display: flex;
-            justify-content: center;
-            align-items: center; */
+            perspective: 1000px;
+            perspective-origin: center;
         }
 
         .outer_box{
             width: 300px;
             height: 300px;
-            margin: 150px auto 0;
-            /* background-color: rgb(210, 195, 30); */
+            margin: 40px auto 0;
             background-image: url('Compass.png');
             display: flex;
-            /* flex-direction: column; */
             justify-content: center;
             align-items: center;
+            transform-style: preserve-3d;
         }
 
         .inner_box{
 
             width: 224px;
             height: 224px;
-            /* background-color: rgba(0, 0, 0, 0.313); */
             border-radius: 50%;
-            rotate: 00deg;
-/*             transition: 1s; */
-            /* transition-delay: 0.1s; */
-          
-
         }
 
-        .alpha{
+        .co-ordinates{
 
             width: 200px;
-            /* height: 50px; */
             background-color: aliceblue;
             margin: 30px auto 0;
             border-radius: 20px;
@@ -82,23 +71,19 @@
         </div>
         
     </div>
-    <div class="alpha">Compass: <span>00</span></div>
+    <div class="co-ordinates" id="Alpha">Alpha: <span>00</span></div>
+    <div class="co-ordinates" id="Beta">Beta: <span>00</span></div>
+    <div class="co-ordinates" id="Gamma">Gamma: <span>00</span></div>
 
     <script>
 
-        const Compass = 'deviceorientation';
-
-       window.addEventListener(Compass, (event) => {
-
-
-            document.querySelector('.inner_box').style.rotate= event.alpha + "deg";
-            document.querySelector('.alpha').innerHTML= `Compass: <span>${Math.round(event.alpha)}</span>`;
-
-           
-        });
+    const Compass = 'deviceorientation'; window.addEventListener(Compass, (event) => {
+            document.querySelector('.inner_box').style.transform= `rotate(${event.alpha}deg)`;
+            document.getElementById('Alpha').innerHTML= `Alpha: <span>${Math.round(event.alpha)}</span>`;
+            document.getElementById('Beta').innerHTML= `Beta: <span>${Math.round(event.beta)}</span>`;
+            document.getElementById('Gamma').innerHTML= `Gamma: <span>${Math.round(event.gamma)}</span>`;           
+        })
     </script>
     
 </body>
-
 </html>
-
