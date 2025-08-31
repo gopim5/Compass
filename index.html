@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+
+            background-color: blueviolet;
+            width: 100%;
+            height: 100vh;
+
+            /* display: flex;
+            justify-content: center;
+            align-items: center; */
+        }
+
+        .outer_box{
+            width: 300px;
+            height: 300px;
+            margin: 150px auto 0;
+            /* background-color: rgb(210, 195, 30); */
+            background-image: url('Compass.png');
+            display: flex;
+            /* flex-direction: column; */
+            justify-content: center;
+            align-items: center;
+        }
+
+        .inner_box{
+
+            width: 224px;
+            height: 224px;
+            /* background-color: rgba(0, 0, 0, 0.313); */
+            border-radius: 50%;
+            rotate: 00deg;
+            transition: 1s;
+            /* transition-delay: 0.1s; */
+          
+
+        }
+
+        .alpha{
+
+            width: 200px;
+            /* height: 50px; */
+            background-color: aliceblue;
+            margin: 30px auto 0;
+            border-radius: 20px;
+            text-align: center;
+            padding: 12px 0;
+            font-family: sans-serif;
+
+            span{
+
+                color: brown;
+                font-size: 24px;
+                font-weight: bold;
+            }
+        }
+        
+
+        
+
+    </style>
+</head>
+<body>
+
+
+    <div class="outer_box">
+        <div class="inner_box">
+
+            <img src="Arrow.png" alt="">
+            
+        </div>
+        
+    </div>
+    <div class="alpha">Alpha: <span>00</span></div>
+
+    <script>
+
+        const Compass = 'deviceorientation'
+
+       window.addEventListener(Compass, (event) => {
+
+
+            document.querySelector('.inner_box').style.rotate= Math.round(event.alpha) + "deg";
+            document.querySelector('.alpha').innerHTML= `Alpha: <span>${Math.round(event.alpha)}</span>`;
+
+           
+        })
+    </script>
+    
+</body>
+</html>
