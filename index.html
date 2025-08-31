@@ -95,8 +95,8 @@
 
     const Compass = 'deviceorientation'; window.addEventListener(Compass, (event) => {
 
-            document.querySelector('.outer_box').style.transform = `rotateZ(${event.alpha * -1}deg) rotateY(${event.beta}deg) rotateX(${event.gamma * -1}deg)`;
-            document.querySelector('.inner_box').style.transform = `rotateX(${event.beta}deg) rotateY(${event.gamma * -1}deg)`;
+            document.querySelector('.outer_box').style.transform = `rotateZ(${event.alpha * -1}deg) rotateX(${event.beta}deg) rotateY(${event.gamma}deg)`;
+            document.querySelector('.inner_box').style.transform = `rotateY(${event.gamma}deg) rotateX(${event.beta}deg)`;
             document.getElementById('Alpha').innerHTML= `Alpha: <span>${Math.round(event.alpha)}</span>`;
             document.getElementById('Beta').innerHTML= `Beta: <span>${Math.round(event.beta)}</span>`;
             document.getElementById('Gamma').innerHTML= `Gamma: <span>${Math.round(event.gamma)}</span>`;           
@@ -105,6 +105,7 @@
     
 </body>
 </html>
+
 
 
 
