@@ -60,15 +60,15 @@
             font-family: sans-serif;
             position: relative;
             z-index: 1;
-            box-shadow: 2px 2px 10px;
+            box-shadow: 2px 2px 10px;        
+        }
 
-            span{
+         .co-ordinates span{
 
                 color: brown;
                 font-size: 24px;
                 font-weight: bold;
             }
-        }
         
 
         
@@ -95,8 +95,8 @@
 
     const Compass = 'deviceorientation'; window.addEventListener(Compass, (event) => {
 
-            document.querySelector('.outer_box').style.transform= `rotate(${-event.alpha}deg) rotateX(${event.beta}) rotateY(${event.gamma * -1})`;
-            document.querySelector('.inner_box').style.transform= `rotateX(${event.beta}) rotateY(${event.gamma * -1})`;
+            document.querySelector('.outer_box').style.transform = `rotateZ(${event.alpha * -1}deg) rotateX(${event.beta}deg) rotateY(${event.gamma * -1}deg)`;
+            document.querySelector('.inner_box').style.transform = `rotateX(${event.beta}deg) rotateY(${event.gamma * -1}deg)`;
             document.getElementById('Alpha').innerHTML= `Alpha: <span>${Math.round(event.alpha)}</span>`;
             document.getElementById('Beta').innerHTML= `Beta: <span>${Math.round(event.beta)}</span>`;
             document.getElementById('Gamma').innerHTML= `Gamma: <span>${Math.round(event.gamma)}</span>`;           
@@ -105,3 +105,4 @@
     
 </body>
 </html>
+
